@@ -4,7 +4,7 @@ function facedetect($input = '', $output = '', $type = 0) {
 		$result = shell_exec('facedetect ' . $input);
 		$result = explode(' ', $result);
 		$face_count = count($result) / 4;
-		if ($face_count < 0) {
+		if ($face_count < 1) {
 			return ['status' => 404, 'msg' => 'Face Not Found'];
 		} else {
 			$location = array_chunk($result, 4);
@@ -25,7 +25,7 @@ function facedetect($input = '', $output = '', $type = 0) {
 		$result = shell_exec('facedetect ' . $input . ' -o ' . $output);
 		$result = explode(' ', $result);
 		$face_count = count($result) / 4;
-		if ($face_count < 0) {
+		if ($face_count < 1) {
 			return ['status' => 404, 'msg' => 'Face Not Found'];
 		} else {
 			$location = array_chunk($result, 4);
